@@ -6,7 +6,7 @@ car_data = pd.read_csv('notebooks/vehicles.csv')  # Lendo os dados
 
 st.header('Análise de Dados de Veículos')  # Título do aplicativo
 
-hist_button = st.button('Criar histograma')  # Criar um botão
+hist_button = st.button('Criar histograma')  # Criar um botão histograma
 
 if hist_button:  # se o botão for clicado
     # escrever uma mensagem
@@ -17,3 +17,17 @@ if hist_button:  # se o botão for clicado
 
     # exibir um gráfico Plotly interativo
     st.plotly_chart(fig, use_container_width=True)
+
+# Criar um botão para o gráfico de dispersão
+disp_button = st.button('Criar gráfico de dispersão')
+
+if disp_button:  # se o botão for clicado
+    # escrever uma mensagem
+    st.write(
+        'Criando um gráfico de dispersão para o conjunto de Análise de Dados de Veículos')
+
+    # Criar um gráfico de dispersão
+    fig_disp = px.scatter(car_data, x="odometer", y="price")
+
+    # exibir um gráfico Plotly interativo
+    st.plotly_chart(fig_disp, use_container_width=True)
